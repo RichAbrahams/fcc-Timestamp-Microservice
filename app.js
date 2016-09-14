@@ -18,8 +18,9 @@ app.use(cookieParser());
 
 app.get('/:timestamp', function(req, res, next) {
     if (moment(req.params.timestamp).isValid()) {
+      console.log(req.params.timestamp);
         var unixTime = moment(req.params.timestamp).unix();
-        var naturalTime = moment(req.params.timestamp).format('dddd do MMMM YYYY');
+        var naturalTime = moment(req.params.timestamp).format('dddd Do MMMM YYYY');
         res.json({
             unixTime: unixTime,
             natural: naturalTime
